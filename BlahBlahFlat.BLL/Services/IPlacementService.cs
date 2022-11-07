@@ -25,7 +25,7 @@ namespace BlahBlahFlat.BLL.Services
         /// <param name="maxPrice">Max price.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns><see cref="PlacementDto"/></returns>
-        Task<IEnumerable<PlacementDto>> GetPlacements(string city, PlacementPeriod? period, decimal? minPrice, decimal? maxPrice, CancellationToken cancellationToken);
+        Task<IEnumerable<PlacementDto>> GetPlacements(string? city, PlacementPeriod? period, decimal? minPrice, decimal? maxPrice, CancellationToken cancellationToken);
 
         /// <summary>
         /// Add new placement request.

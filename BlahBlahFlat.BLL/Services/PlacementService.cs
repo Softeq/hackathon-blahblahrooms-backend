@@ -12,9 +12,8 @@ namespace BlahBlahFlat.BLL.Services
     {
         #region Fields
 
-        public BlahBlahFlatContext _dbContext { get; set; }
-
         private readonly IMapper _mapper;
+        private readonly BlahBlahFlatContext _dbContext;
 
         #endregion
 
@@ -46,7 +45,7 @@ namespace BlahBlahFlat.BLL.Services
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<PlacementDto>> GetPlacements(string city, PlacementPeriod? period, decimal? minPrice, decimal? maxPrice, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PlacementDto>> GetPlacements(string? city, PlacementPeriod? period, decimal? minPrice, decimal? maxPrice, CancellationToken cancellationToken)
         {
             var query = _dbContext.Placements.AsNoTracking();
 
@@ -118,6 +117,5 @@ namespace BlahBlahFlat.BLL.Services
         }
 
         #endregion
-
     }
 }

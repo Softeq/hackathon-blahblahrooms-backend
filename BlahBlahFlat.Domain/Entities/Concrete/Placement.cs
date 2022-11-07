@@ -14,7 +14,7 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         public PlacementType Type { get; set; }
 
         /// <summary>
-        /// Decription of flat
+        /// Description of flat
         /// </summary>
         public string Description { get; set; }
 
