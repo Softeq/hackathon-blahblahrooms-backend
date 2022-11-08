@@ -88,7 +88,7 @@ public class PlacementsController : ControllerBase
     /// <summary>
     /// Update placement
     /// </summary>
-    /// <example>GET: api/placements</example>
+    /// <example>PUT: api/placements/1</example>
     /// <param name="placement"><see cref="PlacementDto"/></param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
     /// <returns>Placement.</returns>
@@ -108,6 +108,24 @@ public class PlacementsController : ControllerBase
         }
 
         return NotFound();
+    }
+
+    /// <summary>
+    /// Delete placement
+    /// </summary>
+    /// <example>Delete: api/placements/1</example>
+    /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+    /// <returns>Placement.</returns>
+    /// <response code="204">OK.</response>
+    /// <response code="404">Not found: If placement is missing.</response>
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Produces(Application.Json)]
+    public async Task<IActionResult> DeletePlacementAsync([FromBody] int id, CancellationToken cancellationToken)
+    {
+        await _placementService.DeletePlacement(id, cancellationToken);
+        return Ok();
     }
 
     #endregion
