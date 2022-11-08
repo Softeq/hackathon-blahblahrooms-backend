@@ -2,6 +2,7 @@ using BlahBlahFlat.BLL.Profiles;
 using BlahBlahFlat.BLL.Services;
 using BlahBlahFlat.DAL.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,7 @@ app.Run();
 void ConfigureServices(IServiceCollection services, IConfiguration configuration)
 {
     services.AddTransient<IPlacementService, PlacementService>();
+    services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
     var connectionString = configuration.GetConnectionString("BlahBlahFlatDatabase");
     services.AddDbContext<BlahBlahFlatContext>(x => x.UseSqlServer(connectionString));
     services.AddAutoMapper(typeof(PlacementProfile).Assembly);

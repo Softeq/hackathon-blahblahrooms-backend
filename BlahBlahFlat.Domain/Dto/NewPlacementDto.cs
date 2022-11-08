@@ -23,9 +23,14 @@ namespace BlahBlahFlat.Domain.Dto
         public string Contacts { get; set; }
 
         /// <summary>
-        /// Coordinates of placement
+        /// Longitude of placement
         /// </summary>
-        public decimal Coordinates { get; set; }
+        public decimal Longitude { get; set; }
+
+        /// <summary>
+        /// Latitude of placement
+        /// </summary>
+        public decimal Latitude { get; set; }
 
         /// <summary>
         /// String address of placement

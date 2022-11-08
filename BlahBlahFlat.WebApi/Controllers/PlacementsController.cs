@@ -94,13 +94,13 @@ public class PlacementsController : ControllerBase
     /// <returns>Placement.</returns>
     /// <response code="200">OK: Placement.</response>
     /// <response code="404">Not found: If placement is missing.</response>
-    [HttpPut("")]
+    [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(PlacementDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [Produces(Application.Json)]
-    public async Task<IActionResult> UpdatePlacementsAsync([FromBody] PlacementDto placement, CancellationToken cancellationToken)
+    public async Task<IActionResult> UpdatePlacementsAsync(int id, [FromBody] NewPlacementDto placement, CancellationToken cancellationToken)
     {
-        var result = await _placementService.UpdatePlacement(placement, cancellationToken);
+        var result = await _placementService.UpdatePlacement(id, placement, cancellationToken);
 
         if (result != null)
         {

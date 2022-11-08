@@ -1,4 +1,5 @@
-﻿using BlahBlahFlat.Domain.Enum;
+﻿using BlahBlahFlat.Domain.Entities.Concrete;
+using BlahBlahFlat.Domain.Enum;
 
 namespace BlahBlahFlat.Domain.Dto;
 
@@ -28,9 +29,14 @@ public class PlacementDto
     public string Contacts { get; set; }
 
     /// <summary>
-    /// Coordinates of placement
+    /// Longitude of placement
     /// </summary>
-    public decimal Coordinates { get; set; }
+    public decimal Longitude { get; set; }
+
+    /// <summary>
+    /// Latitude of placement
+    /// </summary>
+    public decimal Latitude { get; set; }
 
     /// <summary>
     /// String address of placement

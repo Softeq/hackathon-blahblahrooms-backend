@@ -3,6 +3,7 @@ using BlahBlahFlat.DAL.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlahBlahFlat.DAL.Migrations
 {
     [DbContext(typeof(BlahBlahFlatContext))]
-    partial class BlahBlahFlatContextModelSnapshot : ModelSnapshot
+    [Migration("20221108082350_AddLatitudeAndLongitudeProperty")]
+    partial class AddLatitudeAndLongitudeProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

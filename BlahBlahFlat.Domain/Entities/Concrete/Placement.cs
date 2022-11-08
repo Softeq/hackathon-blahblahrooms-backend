@@ -1,5 +1,6 @@
 ﻿using BlahBlahFlat.Domain.Enum;
 using BlahBlahFlat.Domain.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace BlahBlahFlat.Domain.Entities.Concrete
 {
@@ -11,6 +12,7 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         /// <summary>
         /// Placement type
         /// </summary>
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PlacementType Type { get; set; }
 
         /// <summary>
@@ -24,9 +26,14 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         public string Contacts { get; set; }
 
         /// <summary>
-        /// Coordinates of placement
+        /// Longitude of placement
         /// </summary>
-        public decimal Coordinates { get; set; }
+        public decimal Longitude { get; set; }
+
+        /// <summary>
+        /// Latitude of placement
+        /// </summary>
+        public decimal Latitude { get; set; }
 
         /// <summary>
         /// String address of placement
@@ -51,6 +58,7 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         /// <summary>
         /// Period
         /// </summary>
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PlacementPeriod Period { get; set; }
 
         /// <summary>

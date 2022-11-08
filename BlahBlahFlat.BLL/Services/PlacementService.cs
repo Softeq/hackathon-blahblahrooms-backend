@@ -63,7 +63,7 @@ namespace BlahBlahFlat.BLL.Services
             {
                 query = query.Where(x => x.Price >= minPrice);
             }
-            
+
             if (maxPrice.HasValue)
             {
                 query = query.Where(x => x.Price <= maxPrice);
@@ -91,13 +91,12 @@ namespace BlahBlahFlat.BLL.Services
         }
 
         /// <inheritdoc />
-        public async Task<PlacementDto> UpdatePlacement(PlacementDto placement, CancellationToken cancellationToken)
+        public async Task<NewPlacementDto> UpdatePlacement(int id, NewPlacementDto placement, CancellationToken cancellationToken)
         {
-            var dbModel = _mapper.Map<Placement>(placement);
+            var model = await _dbContext.Placements.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            _mapper.Map(placement, model);
 
-            _dbContext.Placements.Attach(dbModel);
-            var entry = _dbContext.Entry(dbModel);
-            entry.State = EntityState.Modified;
+            _dbContext.Placements.Update(model);
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
