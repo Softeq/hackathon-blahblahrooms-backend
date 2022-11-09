@@ -91,7 +91,7 @@ namespace BlahBlahFlat.BLL.Services
         }
 
         /// <inheritdoc />
-        public async Task<NewPlacementDto> UpdatePlacement(int id, NewPlacementDto placement, CancellationToken cancellationToken)
+        public async Task<PlacementDto> UpdatePlacement(int id, NewPlacementDto placement, CancellationToken cancellationToken)
         {
             var model = await _dbContext.Placements.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
             _mapper.Map(placement, model);
@@ -100,7 +100,9 @@ namespace BlahBlahFlat.BLL.Services
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return placement;
+            var result = _mapper.Map<PlacementDto>(placement);
+
+            return result;
         }
 
         /// <inheritdoc />

@@ -42,7 +42,7 @@ namespace BlahBlahFlat.BLL.Services
         /// <param name="placement"><see cref="NewPlacementDto"/></param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns><see cref="PlacementDto"/></returns>
-        Task<NewPlacementDto> UpdatePlacement(int id, NewPlacementDto placement, CancellationToken cancellationToken);
+        Task<PlacementDto> UpdatePlacement(int id, NewPlacementDto placement, CancellationToken cancellationToken);
 
         /// <summary>
         /// Delete placement request.

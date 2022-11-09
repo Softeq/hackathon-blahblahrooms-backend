@@ -12,7 +12,6 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         /// <summary>
         /// Placement type
         /// </summary>
-        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PlacementType Type { get; set; }
 
         /// <summary>
@@ -58,7 +57,6 @@ namespace BlahBlahFlat.Domain.Entities.Concrete
         /// <summary>
         /// Period
         /// </summary>
-        [JsonConverter(typeof(JsonStringEnumConverter))]
         public PlacementPeriod Period { get; set; }
 
         /// <summary>
