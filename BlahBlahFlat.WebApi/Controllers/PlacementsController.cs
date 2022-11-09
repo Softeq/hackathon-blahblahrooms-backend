@@ -122,10 +122,10 @@ public class PlacementsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [Produces(Application.Json)]
-    public async Task<IActionResult> DeletePlacementAsync([FromBody] int id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeletePlacementAsync([FromRoute] int id, CancellationToken cancellationToken)
     {
         await _placementService.DeletePlacement(id, cancellationToken);
-        return Ok();
+        return NoContent();
     }
 
     #endregion
