@@ -48,7 +48,6 @@ namespace BlahBlahFlat.BLL.Services
         /// </summary>
         /// <param name="id">Placement id</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-        /// <returns><see cref="PlacementDto"/></returns>
         Task DeletePlacement(int id, CancellationToken cancellationToken);
     }
 }
